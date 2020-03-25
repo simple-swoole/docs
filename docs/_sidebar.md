@@ -9,5 +9,8 @@
 * 数据库
     * [使用](model.md)
 
+* Redis
+    * [使用](redis.md)
+
 * 事件处理
     * [使用](listens.md)
