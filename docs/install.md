@@ -10,7 +10,7 @@
 ## 通过 Composer 创建项目
 
 ```bash
-composer create-project simple-swoole/skeleton 
+composer create-project simple-swoole/skeleton:dev-master
 ```
 
 ## 启动
