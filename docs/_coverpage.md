@@ -7,5 +7,3 @@
 
 [GitHub](https://github.com/simple-swoole/simps)
 [Get Started](#main)
-
-![](https://cdn.jsdelivr.net/gh/sy-records/staticfile/images/mascot.png)
