@@ -15,7 +15,3 @@ Simps 是基于`Swoole 4.4+`实现的极简PHP协程框架，相当于其他框�
 ## 名称由来
 
 `Simple + Swoole = Simps`，简单的`Swoole`框架。
-
-感谢`Swoole`给`PHP`插上翅膀，继续高飞。
-
-<img src="mascot.png" height="300px" />
