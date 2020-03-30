@@ -6,11 +6,12 @@
     * [路由](http/router.md)
     * [控制器](http/controller.md)
 
-* 数据库
-    * [使用](model.md)
+* WebSocket服务
+    * [使用](websocket/init.md)
 
-* Redis
-    * [使用](redis.md)
+* 数据库
+    * [Mysql](database/mysql.md)
+    * [Redis](database/redis.md)
 
 * 事件处理
     * [使用](listens.md)
