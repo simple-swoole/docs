@@ -8,4 +8,4 @@
 [GitHub](https://github.com/simple-swoole/simps)
 [Get Started](#main)
 
-![](mascot.png)
+![](https://cdn.jsdelivr.net/gh/sy-records/staticfile/images/mascot.png)
