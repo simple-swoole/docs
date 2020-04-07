@@ -2,12 +2,15 @@
     * [框架介绍](README.md)
     * [安装](install.md)
 
-* HTTP服务
+* HTTP
     * [路由](http/router.md)
     * [控制器](http/controller.md)
 
-* WebSocket服务
+* WebSocket
     * [使用](websocket/init.md)
+
+* MQTT
+    * [服务端](mqtt/server.md)
 
 * 数据库
     * [Mysql](database/mysql.md)

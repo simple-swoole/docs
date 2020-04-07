@@ -15,11 +15,12 @@ composer create-project simple-swoole/skeleton:dev-master
 
 ## 启动
 
-支持HTTP服务和WebSocket两种服务
+支持HTTP服务、WebSocket服务和MQTT服务
 
 ```bash
 php bin/simps.php http:start
 php bin/simps.php ws:start
+php bin/simps.php mqtt:start
 ```
 
 服务配置文件在`config/servers.php`中
