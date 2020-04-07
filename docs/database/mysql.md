@@ -4,7 +4,7 @@
 
 ## 安装
 
-!> 如果使用`skeleton`进行安装的就不用在单独进行安装。
+!> Swoole版本 >= v4.4.17 时不需要单独进行安装。如果单独安装了，请在[启动](/install?id=启动)时加上`-d swoole.enable_library=off`关闭内置的`library`
 
 ```
 composer require simple-swoole/db
