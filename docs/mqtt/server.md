@@ -8,6 +8,58 @@ MQTT是一个客户端服务端架构的发布/订阅模式的消息传输协议
 
 本框架封装了MQTT相关操作，并暴露了一些接口，在实际使用时需要实现`Simps\Server\Protocol\MqttInterface`，用户在使用时应该只需要关注业务逻辑实现：如订阅消息、发布消息等
 
+## 实现
+
+!> 下文配置中的`receiveCallbacks`就是对应的实现`Simps\Server\Protocol\MqttInterface`
+
+这里以`onMqConnect`举例说明一下，首先新建一个`app/Events/MqttServer.php`文件
+
+```php
+<?php
+
+declare(strict_types=1);
+/**
+ * This file is part of Simps.
+ *
+ * @link     https://simps.io
+ * @document https://doc.simps.io
+ * @license  https://github.com/simple-swoole/simps/blob/master/LICENSE
+ */
+
+namespace App\Events;
+
+use Simps\Server\Protocol\MQTT;
+use Simps\Server\Protocol\MqttInterface;
+
+class MqttServer implements MqttInterface
+{
+    public function onMqConnect($server, int $fd, $fromId, $data)
+    {
+        if ($data['protocol_name'] != "MQTT") {
+            // 如果协议名不正确服务端可以断开客户端的连接，也可以按照某些其它规范继续处理CONNECT报文
+            $server->close($fd);
+            return false;
+        }
+
+        // 判断客户端是否已经连接，如果是需要断开旧的连接
+        // 判断是否有遗嘱信息
+        // ...
+
+        // 返回确认连接请求
+        $server->send(
+            $fd,
+            MQTT::getAck(
+                [
+                    'cmd' => 2, // CONNACK固定值为2
+                    'code' => 0, // 连接返回码 0表示连接已被服务端接受
+                    'session_present' => 0
+                ]
+            )
+        );
+    }
+}
+```
+
 ## 配置
 
 配置文件在`config/servers.php`中，增加一个MQTT的服务
