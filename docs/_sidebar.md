@@ -11,7 +11,7 @@
 
 * MQTT
     * [服务端](mqtt/server.md)
-    * [客户端](mqtt/server.md)
+    * [客户端](mqtt/client.md)
 
 * 数据库
     * [Mysql](database/mysql.md)
