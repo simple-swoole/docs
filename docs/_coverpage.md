@@ -5,5 +5,5 @@
 * Simple and lightweight
 * High performance
 
-[GitHub](https://github.com/simple-swoole/simps)
 [Get Started](#main)
+[Need improve performance?](mailto:team@simps.io)
