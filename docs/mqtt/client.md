@@ -4,7 +4,7 @@ MQTT客户端由`Swoole\Coroutine\Client`实现，提供了以下方法
 
 ## 方法
 
-## Client::__construct()
+### Client::__construct()
 
 创建一个MQTT客户端实例。
 
@@ -28,7 +28,7 @@ $config = [
 ];
 ```
 
-## Client::connect()
+### Client::connect()
 
 连接Broker
 
@@ -57,7 +57,7 @@ $will = [
 ];
 ```
 
-## Client::publish()
+### Client::publish()
 
 向某个主题发布一条消息
 
@@ -71,7 +71,7 @@ public function publish($topic, $content, $qos = 0, $dup = 0, $retain = 0)
 * 参数`$dup` 重发标志，默认0
 * 参数`$retain` retain标记，默认0
 
-## Client::subscribe()
+### Client::subscribe()
 
 订阅一个主题或者多个主题
 
@@ -91,7 +91,7 @@ $topics = [
 ];
 ```
 
-## Client::unSubscribe()
+### Client::unSubscribe()
 
 取消订阅一个主题或者多个主题
 
@@ -101,7 +101,7 @@ public function unSubscribe(array $topics)
 
 !> 参数同上。
 
-## Client::close()
+### Client::close()
 
 正常断开与Broker的连接，`DISCONNECT`(`14`)报文会被发送到Broker
 
@@ -109,7 +109,7 @@ public function unSubscribe(array $topics)
 public function close()
 ```
 
-## Client::recv()
+### Client::recv()
 
 接收消息
 
@@ -119,7 +119,9 @@ public function recv()
 
 返回值可能为`bool`、`array`、`string`
 
-## Client::ping()
+!> 如果是数组的话就需要按照对应的`cmd`参数处理逻辑
+
+### Client::ping()
 
 发送心跳包
 
@@ -127,7 +129,7 @@ public function recv()
 public function ping()
 ```
 
-## Client::getMsgId()
+### Client::getMsgId()
 
 获取当前消息id条数
 
