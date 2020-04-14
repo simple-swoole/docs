@@ -1,5 +1,9 @@
 # MQTT客户端
 
+MQTT客户端由`Swoole\Coroutine\Client`实现，提供了以下方法
+
+## 方法
+
 ## Client::__construct()
 
 创建一个MQTT客户端实例。
@@ -130,3 +134,5 @@ public function ping()
 ```php
 public function getMsgId()
 ```
+
+## 使用示例
