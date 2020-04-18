@@ -26,14 +26,19 @@
       name: 'Simps',
       repo: "simple-swoole/simps",
       logo: 'https://cdn.jsdelivr.net/gh/sy-records/staticfile/images/simps.png',
-      coverpage: true,
+      coverpage:true,
       loadSidebar: true,
+      loadNavbar: true,
       subMaxLevel: 3,
       themeColor: '#5C9DFF',
       mergeNavbar: true,
       auto2top: true,
       search: {
         depth: 6
+      },
+      fallbackLanguages: ['zh-cn', 'en'],
+      alias: {
+        '/_sidebar.md': './zh-cn/_sidebar.md'
       },
       plugins: [
         function (hook) {
