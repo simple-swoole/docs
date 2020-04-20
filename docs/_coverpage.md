@@ -6,4 +6,4 @@
 * High performance
 
 [Need improve performance?](mailto:team@simps.io)
-[Get Started](#main)
+<a href="https://doc.simps.io" target="_self">Get Started</a>
