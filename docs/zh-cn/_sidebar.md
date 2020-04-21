@@ -1,7 +1,8 @@
 * 前言
     * [框架介绍](zh-cn/README.md)
     * [安装](zh-cn/install.md)
-    * [赞助](zh-cn/donate.md)
+    * [线上交流](zh-cn/communication.md)
+    * [捐献赞助](zh-cn/donate.md)
 
 * HTTP
     * [路由](zh-cn/http/router.md)
