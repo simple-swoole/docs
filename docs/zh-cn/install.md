@@ -36,7 +36,6 @@ php bin/simps.php mqtt:start
 例如需要单独TCP服务，需要自行封装一下，在配置文件中加入相关信息：
 
 ```php
-
 return [
     // 省略了其他部分
     'tcp' => [
@@ -53,8 +52,8 @@ return [
 ];
 ```
 
+执行如下命令就会启动对应的服务
+
 ```shell
 php bin/simps.php tcp:start
 ```
-
-执行以上命令就会启动对应的服务器

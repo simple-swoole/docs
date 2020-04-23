@@ -30,3 +30,30 @@ php bin/simps.php mqtt:start
 ```
 
 The Server configuration file is in `config/servers.php`.
+
+## Custom Server
+
+For example, if you need a separate TCP service, you need to encapsulate it yourself and add the relevant information in the configuration file.
+
+```php
+return [
+    // Other parts omitted.
+    'tcp' => [
+        'ip' => '0.0.0.0',
+        'port' => 9504,
+        'sock_type' => SWOOLE_SOCK_TCP,
+        'callbacks' => [
+        ],
+        'settings' => [
+        ],
+        // Setting up the startup server class
+        'class_name' => \App\Server\TCP::class
+    ],
+];
+```
+
+Executing the following command will start the corresponding service.
+
+```shell
+php bin/simps.php tcp:start
+```
