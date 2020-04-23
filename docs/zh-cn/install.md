@@ -30,3 +30,31 @@ php bin/simps.php mqtt:start
 ```
 
 服务配置文件在`config/servers.php`中
+
+## 自定义Server
+
+例如需要单独TCP服务，需要自行封装一下，在配置文件中加入相关信息：
+
+```php
+
+return [
+    // 省略了其他部分
+    'tcp' => [
+        'ip' => '0.0.0.0',
+        'port' => 9504,
+        'sock_type' => SWOOLE_SOCK_TCP,
+        'callbacks' => [
+        ],
+        'settings' => [
+        ],
+        // 设置启动的Server类
+        'class_name' => \App\Server\TCP::class
+    ],
+];
+```
+
+```shell
+php bin/simps.php tcp:start
+```
+
+执行以上命令就会启动对应的服务器
