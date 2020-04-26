@@ -2,7 +2,7 @@
 
 需要确保运行环境达到了以下的要求：
 
-* PHP >= 7.2
+* PHP >= 7.1
 * Swoole PHP 扩展 >= 4.4
 * PDO PHP 扩展 （如需要使用到 MySQL 客户端）
 * Redis PHP 扩展 （如需要使用到 Redis 客户端）

@@ -2,7 +2,7 @@
 
 Need to ensure that the operating environment meets the following requirements:
 
-* PHP >= 7.2
+* PHP >= 7.1
 * Swoole PHP extension >= 4.4
 * PDO PHP extension （If you need to use MySQL Client）
 * Redis PHP extension （If you need to use Redis Client）
