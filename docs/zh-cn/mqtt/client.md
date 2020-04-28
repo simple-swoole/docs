@@ -138,3 +138,109 @@ public function getMsgId()
 ```
 
 ## 使用示例
+
+### 发布
+
+```php
+use Simps\Client\MQTTClient;
+
+$config = [
+    'host' => '127.0.0.1',
+    'port' => 9503,
+    'time_out' => 5,
+    'username' => 'username',
+    'password' => 'password',
+    'client_id' => 'd812edc1-18da-2085-0edf-a4a588c296da',
+];
+
+Co\run(function () use ($config) {
+    $client = new MQTTClient($config);
+    while (! $client->connect()) {
+        \Swoole\Coroutine::sleep(3);
+        $client->connect();
+    }
+    $response = $client->publish('simpsmqtt/+/get', '123');
+    if ($response) {
+        $client->close();
+    }
+});
+```
+
+### 订阅
+
+```php
+use Simps\Client\MQTTClient;
+
+$config = [
+    'host' => '127.0.0.1',
+    'port' => 9503,
+    'time_out' => 5,
+    'username' => 'username',
+    'password' => 'password',
+    'client_id' => 'd812edc1-18da-2085-0edf-a4a588c296d1',
+    'keepalive' => 10,
+];
+
+Co\run(function () use ($config) {
+    $client = new MQTTClient($config);
+    $will = [
+        'topic' => 'simpsmqtt/username/update',
+        'qos' => 1,
+        'retain' => 0,
+        'content' => "123",
+    ];
+    while (! $client->connect(true, $will)) {
+        \Swoole\Coroutine::sleep(3);
+        $client->connect(true, $will);
+    }
+    $topics['simpsmqtt/username/get'] = 1;
+    $topics['simpsmqtt/username/update'] = 1;
+    $timeSincePing = time();
+    $client->subscribe($topics);
+    while (true) {
+        $buffer = $client->recv();
+        var_dump($buffer);
+        if ($buffer && $buffer !== true) {
+            $timeSincePing = time();
+        }
+        if (isset($config['keepalive']) && $timeSincePing < (time() - $config['keepalive'])) {
+            $buffer = $client->ping();
+            if ($buffer) {
+                echo '发送心跳包成功' . PHP_EOL;
+                $timeSincePing = time();
+            } else {
+                $client->close();
+                break;
+            }
+        }
+    }
+});
+```
+
+### 取消订阅
+
+```php
+use Simps\Client\MQTTClient;
+
+$config = [
+    'host' => '127.0.0.1',
+    'port' => 9503,
+    'time_out' => 5,
+    'username' => 'username',
+    'password' => 'password',
+    'client_id' => 'd812edc1-18da-2085-0edf-a4a588c296da',
+];
+
+Co\run(function () use ($config) {
+    $client = new MQTTClient($config);
+    while (! $client->connect()) {
+        \Swoole\Coroutine::sleep(3);
+        $client->connect();
+    }
+    $topics = ['simpsmqtt/username/get'];
+    $client->unSubscribe($topics);
+    $buffer = $client->recv();
+    var_dump($buffer);
+    $client->close();
+});
+```
