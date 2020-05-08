@@ -113,6 +113,22 @@ The return value may be `bool`,` array`, `string`
 
 !> If it is an array, you need to process logic according to the corresponding `cmd` parameter
 
+### Client::sendBuffer()
+
+Send message.
+
+```
+public function sendBuffer($data, $response = true)
+```
+
+* `array $data`
+
+`$data` is the data to be sent and must contain information such as `cmd`.
+
+* `bool $response`
+
+Whether a receipt is required, if it is `true`,` recv () `will be called once.
+
 ### Client::ping()
 
 Send heartbeat packet.

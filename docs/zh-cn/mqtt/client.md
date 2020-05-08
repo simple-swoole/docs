@@ -121,6 +121,22 @@ public function recv()
 
 !> 如果是数组的话就需要按照对应的`cmd`参数处理逻辑
 
+### Client::sendBuffer()
+
+发送消息
+
+```
+public function sendBuffer($data, $response = true)
+```
+
+* 参数`array $data`
+
+`$data`是需要发送的数据，必须包含`cmd`等信息
+
+* 参数`bool $response`
+
+是否需要回执，如果为`true`，会调用一次`recv()`
+
 ### Client::ping()
 
 发送心跳包
