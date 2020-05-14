@@ -1,6 +1,6 @@
 # MySQL
 
-The MySQL connection pool provided by [Swoole Library](https://github.com/swoole/library) is used, and a lightweight PHP database framework [Medoo](https://medoo.lvtao.net/index.php), you need to inherit `Simps\DB\BaseModel`
+The MySQL connection pool provided by [Swoole Library](https://github.com/swoole/library) is used.
 
 ## Installation
 
@@ -25,6 +25,7 @@ return [
     'password' => '',
     'charset' => 'utf8mb4',
     'options' => [
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ],
     'size' => 64 // 连接池size
 ];
@@ -32,7 +33,9 @@ return [
 
 ## Use
 
-The functions of Medoo are integrated, so the method of use is basically the same as Medoo. For details, please check [Medoo's documentation](https://medoo.lvtao.net/1.2/doc.php)
+### Medoo
+
+Integrated lightweight PHP database framework [Medoo](https://medoo.lvtao.net/index.php), need to inherit `Simps\DB\BaseModel`, so the use of methods and Medoo basically the same, please see [Medoo's documentation](https://medoo.lvtao.net/1.2/doc.php).
 
 The only difference is transaction-related operations. In Medoo, the `action( $callback )` method is used. In this framework, the `action( $callback )` method can also be used. In addition, the following methods are also supported
 
@@ -42,7 +45,7 @@ commit();
 rollBack();
 ```
 
-### Examples
+#### Examples
 
 ```php
 $this->beginTransaction();
@@ -63,3 +66,17 @@ if ($this->has("user", ["id" => 23]))
     $this->commit();
 }
 ```
+
+### DB
+
+#### Method
+
+|   Method name    | Return Value Type |                                  Notes                                   |
+| :--------------: | :---------------: | :----------------------------------------------------------------------: |
+| beginTransaction |      `void`       |                         Start a beginTransaction                         |
+|      commit      |      `void`       |                        commit a beginTransaction                         |
+|     rollBack     |      `void`       |                       rollBack a beginTransaction                        |
+|      insert      |       `int`       | Insert data, return primary key ID, non-self-added primary key returns 0 |
+|     execute      |       `int`       |            Execute SQL and return the number of affected rows            |
+|      query       |      `array`      |               Query SQL and return a list of result sets.                |
+|      fetch       |  `array, object`  |       Query SQL and return the first row of data in the result set       |

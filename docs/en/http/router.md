@@ -10,7 +10,10 @@ Declare the corresponding routing information in the `config/routes.php` file.
 return [
     ['GET', '/', '\App\Controller\IndexController@index'],
     ['POST', '/', '\App\Controller\IndexController@index'],
-    ['GET', '/test/{id:\d+}', '\App\Controller\IndexController@test'],
+    ['GET', '/hello[/{name}]', '\App\Controller\IndexController@hello'],
+    ['GET', '/favicon.ico', function ($request, $response) {
+        $response->end('');
+    }],
 ];
 ```
 
@@ -18,10 +21,27 @@ return [
 
 The corresponding controller method has two parameters `$request` and `$response` by default. If routing parameters are added, they are in the third parameter array.
 
-For example, the default route `/test/{id:\d+}`, this time when you access the corresponding `http://0.0.0.0:9501/test/1`, you will output
+```php
+public function hello($request, $response, $data)
+{
+    $name = $data['name'] ?? 'Simps';
+
+    $response->end(
+        json_encode(
+            [
+                'method' => $request->server['request_method'],
+                'message' => "Hello {$name}.",
+            ]
+        )
+    );
+}
+```
+
+For example, the default route `/hello[/{name}]`, this time when you access the corresponding `http://0.0.0.0:9501/hello/swoole`, you will output
 
 ```json
 {
-    "id": "1"
+    "method": "GET",
+    "message": "Hello swoole."
 }
 ```

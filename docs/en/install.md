@@ -10,10 +10,10 @@ Need to ensure that the operating environment meets the following requirements:
 ## Create project via Composer
 
 ```bash
-composer create-project simple-swoole/skeleton:dev-master
+composer create-project simple-swoole/skeleton
 ```
 
-!> If you need to use `MySQL` and` Redis` clients, and `Swoole` version is less than` v4.4.17`, you need to install [Swoole/Library](https://github.com/swoole/library), At the same time, you need to add `-d swoole.enable_library = off` or modify `php.ini` to close the built-in `library` at startup
+!> If you need to use `MySQL` and` Redis` clients, and `Swoole` version is less than` v4.4.17`, you need to install [Swoole/Library](https://github.com/swoole/library) , At the same time, you need to add `-d swoole.enable_library = off` or modify `php.ini` to close the built-in `library` at startup
 
 ```bash
 composer require swoole/library:dev-master
