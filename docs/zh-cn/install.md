@@ -10,10 +10,10 @@
 ## 通过 Composer 创建项目
 
 ```bash
-composer create-project simple-swoole/skeleton:dev-master
+composer create-project simple-swoole/skeleton
 ```
 
-!> 如果你需要使用`MySQL`和`Redis`客户端，并且`Swoole`版本小于`v4.4.17`，则需要单独安装一下[Swoole/Library](https://github.com/swoole/library)，同时也需要在启动时加上`-d swoole.enable_library=off`或者修改`php.ini`关闭内置的`library`
+!> 如果你需要使用`MySQL`和`Redis`客户端，并且`Swoole`版本小于`v4.4.17`，则需要单独安装一下 [Swoole/Library](https://github.com/swoole/library) ，同时也需要在启动时加上`-d swoole.enable_library=off`或者修改`php.ini`关闭内置的`library`
 
 ```bash
 composer require swoole/library:dev-master

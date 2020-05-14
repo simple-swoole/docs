@@ -1,6 +1,6 @@
 # MySQL
 
-使用了由[Swoole Library](https://github.com/swoole/library)提供的MySQL连接池，同时集成了轻量级的PHP数据库框架[Medoo](https://medoo.lvtao.net/index.php)，使用时需要继承`Simps\DB\BaseModel`
+使用了由 [Swoole Library](https://github.com/swoole/library) 提供的MySQL连接池。
 
 ## 安装
 
@@ -25,6 +25,7 @@ return [
     'password' => '',
     'charset' => 'utf8mb4',
     'options' => [
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ],
     'size' => 64 // 连接池size
 ];
@@ -32,7 +33,9 @@ return [
 
 ## 使用
 
-集成了Medoo的功能，所以使用方法和Medoo基本一致，具体请查看[Medoo的文档](https://medoo.lvtao.net/1.2/doc.php)
+### Medoo
+
+集成了轻量级的PHP数据库框架 [Medoo](https://medoo.lvtao.net/index.php) ，使用时需要继承`Simps\DB\BaseModel`，所以使用方法和Medoo基本一致，具体请查看[Medoo的文档](https://medoo.lvtao.net/1.2/doc.php)
 
 唯一不同的是事务相关操作，在Medoo中是使用`action( $callback )`方法，而在本框架中也可以使用`action( $callback )`方法，另外也支持以下方法
 
@@ -42,7 +45,7 @@ commit(); // 提交事务
 rollBack(); // 回滚事务
 ```
 
-### 示例
+#### 示例
 
 ```php
 $this->beginTransaction();
@@ -63,3 +66,17 @@ if ($this->has("user", ["id" => 23]))
     $this->commit();
 }
 ```
+
+### DB
+
+#### 方法
+
+|      方法名      |   返回值类型    |                  备注                   |
+| :--------------: | :-------------: | :-------------------------------------: |
+| beginTransaction |     `void`      |                开启事务                 |
+|      commit      |     `void`      |                提交事务                 |
+|     rollBack     |     `void`      |                回滚事务                 |
+|      insert      |      `int`      | 插入数据，返回主键 ID，非自增主键返回 0 |
+|     execute      |      `int`      |       执行 SQL，返回受影响的行数        |
+|      query       |     `array`     |        查询 SQL，返回结果集列表         |
+|      fetch       | `array, object` |     查询 SQL，返回结果集的首行数据      |

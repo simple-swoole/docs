@@ -10,7 +10,10 @@ HTTP服务器的路由使用 [nikic/fast-route](https://github.com/nikic/FastRou
 return [
     ['GET', '/', '\App\Controller\IndexController@index'],
     ['POST', '/', '\App\Controller\IndexController@index'],
-    ['GET', '/test/{id:\d+}', '\App\Controller\IndexController@test'],
+    ['GET', '/hello[/{name}]', '\App\Controller\IndexController@hello'],
+    ['GET', '/favicon.ico', function ($request, $response) {
+        $response->end('');
+    }],
 ];
 ```
 
@@ -18,10 +21,27 @@ return [
 
 对应的控制器方法默认有两个参数`$request`和`$reponse`，如果增加了路由参数的话，则在第三个参数数组之中。
 
-例如默认的路由`/test/{id:\d+}`，这个时候访问对应的`http://0.0.0.0:9501/test/1`时，就会输出
+```php
+public function hello($request, $response, $data)
+{
+    $name = $data['name'] ?? 'Simps';
+
+    $response->end(
+        json_encode(
+            [
+                'method' => $request->server['request_method'],
+                'message' => "Hello {$name}.",
+            ]
+        )
+    );
+}
+```
+
+例如默认的路由`/hello[/{name}]`，这个时候访问对应的`http://0.0.0.0:9501/hello/swoole`时，就会输出
 
 ```json
 {
-    "id": "1"
+    "method": "GET",
+    "message": "Hello swoole."
 }
 ```
