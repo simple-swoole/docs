@@ -1,18 +1,23 @@
-# MQTT Server
+# Servidor MQTT
 
-MQTT is a publish/subscribe model message transmission protocol for client-server architecture. Its design idea is light, open, simple, standardized and easy to implement. These characteristics make it a good choice for many scenarios, especially for restricted environments such as machine-to-machine communication (M2M) and Internet of Things (IoT) environments.
+O MQTT é um protocolo de transmissão de mensagens do modelo de publicação / assinatura para a arquitetura cliente-servidor. 
+Sua idéia de design é leve, aberta, simples, padronizada e fácil de implementar. Essas características o tornam uma boa 
+escolha para muitos cenários, especialmente para ambientes restritos, como ambientes de comunicação máquina a máquina (M2M) 
+e Internet das Coisas (IoT).
 
-Please read the relevant content of MQTT agreement before development:[mqtt-v3.1.1](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html)
+Leia o conteúdo relevante do contrato MQTT antes do desenvolvimento: [mqtt-v3.1.1](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html)
 
-When using Swoole as the server, by setting the [open_mqtt_protocol](https://wiki.swoole.com/#/server/setting?id=open_mqtt_protocol) option, the `mqtt` header will be parsed when enabled, and the` onReceive` event of the `worker` process will return a complete` mqtt` packet each time.
+Ao usar o Swoole como servidor, configurando a opção [open_mqtt_protocol](https://wiki.swoole.com/#/server/setting?id=open_mqtt_protocol), 
+o cabeçalho `mqtt` será analisado quando ativado e o` O evento onReceive` do processo `worker` retornará um pacote completo` mqtt` a cada vez.
 
-This framework encapsulates MQTT related operations and exposes some interfaces. In actual use, it needs to implement `Simps\Server\Protocol\MqttInterface`. Users should only need to pay attention to business logic implementation when using: such as subscribing to messages, publishing messages, etc.
+Esse framework encapsula operações relacionadas ao MQTT e expõe algumas interfaces. No uso real, ele precisa implementar 
+`Simps\Server\Protocol\MqttInterface`. Os usuários devem apenas prestar atenção à implementação da lógica de negócios ao 
+usar: como assinar mensagens, publicar mensagens etc.
 
 ## Achieve
 
-!> The `receiveCallbacks` in the configuration below is the corresponding implementation`Simps\Server\Protocol\MqttInterface`
-
-Here is an example of `onMqConnect`, first create a new`app/Events/MqttServer.php`file
+> O `receiveCallbacks` na configuração abaixo é a implementação correspondente `Simps \Server\Protocol\MqttInterface`
+Aqui está um exemplo de `onMqConnect`, primeiro crie um novo arquivo `app/Events/MqttServer.php`
 
 ```php
 <?php
@@ -36,22 +41,22 @@ class MqttServer implements MqttInterface
     public function onMqConnect($server, int $fd, $fromId, $data)
     {
         if ($data['protocol_name'] != "MQTT") {
-            // 如果协议名不正确服务端可以断开客户端的连接，也可以按照某些其它规范继续处理CONNECT报文
+            // Se o nome do protocolo estiver incorreto, o servidor poderá desconectar o cliente ou continuar processando a mensagem CONNECT de acordo com algumas outras especificações.
             $server->close($fd);
             return false;
         }
 
-        // 判断客户端是否已经连接，如果是需要断开旧的连接
-        // 判断是否有遗嘱信息
+        //Determine se o cliente está conectado, se é necessário desconectar a conexão antiga
+        //Determinar se há informações do testamento
         // ...
 
-        // 返回确认连接请求
+        // Retornar para confirmar a solicitação de conexão
         $server->send(
             $fd,
             MQTT::getAck(
                 [
-                    'cmd' => 2, // CONNACK固定值为2
-                    'code' => 0, // 连接返回码 0表示连接已被服务端接受
+                    'cmd' => 2, //O valor fixo do CONNACK é 2
+                    'code' => 0, //Código de retorno da conexão 0 significa que a conexão foi aceita pelo servidor
                     'session_present' => 0
                 ]
             )
@@ -60,15 +65,15 @@ class MqttServer implements MqttInterface
 }
 ```
 
-## Configuration
+## Configuração
 
-The configuration file is in `config / servers.php`, add a MQTT Server
+O arquivo de configuração está em `config/servers.php`, adicione um servidor MQTT
 
 ```php
 use Simps\Server\Protocol\MQTT;
 
 return [
-    // ... 省略了其他服务配置
+    // ... Omitir outra configuração de serviço
     'mqtt' => [
         'ip' => '0.0.0.0',
         'port' => 9503,
@@ -90,10 +95,9 @@ return [
 ];
 ```
 
-## Start
+## Começar
 
-Execute the command to start the MQTT Server service
-
+Execute o comando para iniciar o serviço do Servidor MQTT
 ```bash
 php bin/simps.php mqtt:start
 ```

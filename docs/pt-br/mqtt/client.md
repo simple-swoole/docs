@@ -1,12 +1,12 @@
-# MQTT客户端
+# Cliente MQTT
 
-The MQTT client is implemented by `Swoole\Coroutine\Client` and provides the following methods
+O cliente MQTT é implementado por `Swoole\Coroutine\Client` e fornece os seguintes métodos
 
-## Method
+## Método
 
 ### Client::__construct()
 
-Create an MQTT client instance.
+Crie uma instância do cliente MQTT.
 
 ```php
 public function __construct(array $config)
@@ -14,17 +14,17 @@ public function __construct(array $config)
 
 * `array $config`
 
-Client option array, you can set the following options:
+Matriz de opções do cliente, você pode definir as seguintes opções:
 
 ```php
 $config = [
-    'host' => '127.0.0.1', // MQTT服务端IP
-    'port' => 1883, // MQTT服务端端口
-    'time_out' => 5, // 连接MQTT服务端超时时间，默认0.5秒
-    'username' => 'username', // 用户名
-    'password' => 'password', // 密码
-    'client_id' => '', // 客户端id
-    'keepalive' => 10, // 默认0秒，设置成0代表禁用
+    'host' => '127.0.0.1', // IP do servidor MQTT
+    'port' => 1883, // porta do servidor MQTT
+    'time_out' => 5, // tempo limite para conectar-se ao servidor MQTT, padrão 0,5 segundos
+    'username' => 'username', // nome de usuário
+    'password' => 'password', // senha
+    'client_id' => '', // ID do cliente
+    'keepalive' => 10, // padrão 0 segundos, definido como 0 significa desativado
 ];
 ```
 
@@ -38,26 +38,26 @@ public function connect(bool $clean = true, array $will = [])
 
 * `bool $clean`
 
-Clean up the session, the default is `true`
+Limpe a sessão, o padrão é `true`
 
 * `array $will`
 
-Testament message, when the client disconnects, Broker will automatically send the testament message to other clients.
+Mensagem do testamento, quando o cliente se desconecta, o Broker envia automaticamente a mensagem do testamento para outros clientes.
 
-The content to be set is as follows:
+O conteúdo a ser definido é o seguinte:
 
 ```php
 $will = [
-    'topic' => '', // 主题
-    'qos' => 1, // QoS等级
-    'retain' => 0, // retain标记
-    'content' => "", // content
+    'topic' => '', // tema
+    'qos' => 1, // Nível de QoS
+    'retain' => 0, // reter marca
+    'content' => "", // conteúdo
 ];
 ```
 
 ### Client::publish()
 
-Post a message to a topic.
+Poste uma mensagem em um tópico.
 
 ```php
 public function publish($topic, $content, $qos = 0, $dup = 0, $retain = 0)
@@ -65,7 +65,7 @@ public function publish($topic, $content, $qos = 0, $dup = 0, $retain = 0)
 
 ### Client::subscribe()
 
-Subscribe to one topic or multiple topics.
+Inscreva-se em um tópico ou em vários tópicos.
 
 ```php
 public function subscribe(array $topics)
@@ -73,11 +73,11 @@ public function subscribe(array $topics)
 
 * `array $topics`
 
-`$topics` is an array where `key` is a topic and `value` is `QoS`, for example
+`$topics` é uma matriz em que `key` é um tópico e `value` é `QoS`, por exemplo
 
 ```php
 $topics = [
-    // 主题 => Qos
+    // tema => Qos
     'topic1' => 0, 
     'topic2' => 1,
 ];
@@ -85,17 +85,17 @@ $topics = [
 
 ### Client::unSubscribe()
 
-Unsubscribe from one topic or multiple topics.
+Cancele a inscrição em um tópico ou em vários tópicos.
 
 ```php
 public function unSubscribe(array $topics)
 ```
 
-!> The parameters are the same as above.
+> Os parâmetros são os mesmos que acima.
 
 ### Client::close()
 
-Normally disconnect with Broker, `DISCONNECT(14)` message will be sent to Broker.
+Normalmente desconecte-se do Broker, a mensagem `DISCONNECT (14)` será enviada ao Broker.
 
 ```php
 public function close()
@@ -103,19 +103,18 @@ public function close()
 
 ### Client::recv()
 
-Receive message.
+Receber mensagem.
 
 ```
 public function recv()
 ```
+O valor de retorno pode ser `bool`, `array`, `string`
 
-The return value may be `bool`,` array`, `string`
-
-!> If it is an array, you need to process logic according to the corresponding `cmd` parameter
+> Se for um array, você precisará processar a lógica de acordo com o parâmetro correspondente `cmd`
 
 ### Client::sendBuffer()
 
-Send message.
+Enviar mensagem.
 
 ```
 public function sendBuffer($data, $response = true)
@@ -123,15 +122,15 @@ public function sendBuffer($data, $response = true)
 
 * `array $data`
 
-`$data` is the data to be sent and must contain information such as `cmd`.
+`$ data` é o dado a ser enviado e deve conter informações como `cmd`.
 
 * `bool $response`
 
-Whether a receipt is required, if it is `true`,` recv () `will be called once.
+Se um recibo é necessário, se for `true`, `recv()` será chamado uma vez.
 
 ### Client::ping()
 
-Send heartbeat packet.
+Enviar pacote de pulsação.
 
 ```php
 public function ping()
@@ -139,15 +138,15 @@ public function ping()
 
 ### Client::getMsgId()
 
-Get the number of current message id.
+Obtenha o número do ID da mensagem atual.
 
 ```php
 public function getMsgId()
 ```
 
-## Usage example
+## Exemplo de uso
 
-### Publish
+### Publicar
 
 ```php
 use Simps\Client\MQTTClient;
@@ -174,7 +173,7 @@ Co\run(function () use ($config) {
 });
 ```
 
-### Subscribe
+### Se inscrever
 
 ```php
 use Simps\Client\MQTTClient;
@@ -225,7 +224,7 @@ Co\run(function () use ($config) {
 });
 ```
 
-### UnSubscribe
+### Cancelar subscrição
 
 ```php
 use Simps\Client\MQTTClient;
