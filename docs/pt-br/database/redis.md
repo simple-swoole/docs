@@ -1,16 +1,16 @@
 # Redis
 
-The same uses the Redis connection pool provided by [Swoole Library](https://github.com/swoole/library)
+O mesmo usa o pool de conexões Redis fornecido pelo [Swoole Library](https://github.com/swoole/library)
 
-## Installation
+## Instalação
 
 ```
 composer require simple-swoole/db
 ```
 
-## Configuration
+## Configuração
 
-the configuration file is in `config/redis.php`
+o arquivo de configuração está em`config/redis.php`
 
 ```php
 <?php
@@ -27,7 +27,7 @@ return [
 ];
 ```
 
-## Use
+## Uso
 
 ```php
 $redis = new \Simps\DB\BaseRedis();

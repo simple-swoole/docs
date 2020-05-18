@@ -1,16 +1,16 @@
 # MySQL
 
-The MySQL connection pool provided by [Swoole Library](https://github.com/swoole/library) is used.
+O conjunto de conexões MySQL fornecido pelo [Swoole Library](https://github.com/swoole/library).
 
-## Installation
+## Instalação
 
 ```
 composer require simple-swoole/db
 ```
 
-## Configuration
+## Configuração
 
-Use PDO to connect, the configuration file is in `config/database.php`
+Use PDO para conectar ao banco, o arquivo de configuração fica em `config/database.php`
 
 ```php
 <?php
@@ -27,17 +27,19 @@ return [
     'options' => [
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ],
-    'size' => 64 // 连接池size
+    'size' => 64 // Tamanho do conjunto de conexões
 ];
 ```
 
-## Use
+## Uso
 
 ### Medoo
 
-Integrated lightweight PHP database framework [Medoo](https://medoo.lvtao.net/index.php), need to inherit `Simps\DB\BaseModel`, so the use of methods and Medoo basically the same, please see [Medoo's documentation](https://medoo.lvtao.net/1.2/doc.php).
+Framework PHP leve e integrado a banco de dados [Medoo] (https://medoo.lvtao.net/index.php), precisa herdar `Simps\DB\BaseModel`, 
+para que o uso de métodos e Medoo sejam basicamente os mesmos, consulte [Documentação do Medoo] (https://medoo.lvtao.net/1.2/doc.php).
 
-The only difference is transaction-related operations. In Medoo, the `action( $callback )` method is used. In this framework, the `action( $callback )` method can also be used. In addition, the following methods are also supported
+A única diferença são as operações relacionadas à transação. No Medoo, o método `action ($ callback)` é usado. Nesse
+framework, o método `action ($ callback)` também pode ser usado. Além disso, os seguintes métodos também são suportados:
 
 ```php
 beginTransaction();
@@ -45,7 +47,7 @@ commit();
 rollBack();
 ```
 
-#### Examples
+#### Exemplos
 
 ```php
 $this->beginTransaction();
@@ -67,16 +69,16 @@ if ($this->has("user", ["id" => 23]))
 }
 ```
 
-### DB
+### Banco de Dados
 
-#### Method
+#### Método
 
-|   Method name    | Return Value Type |                                  Notes                                   |
-| :--------------: | :---------------: | :----------------------------------------------------------------------: |
-| beginTransaction |      `void`       |                         Start a beginTransaction                         |
-|      commit      |      `void`       |                        commit a beginTransaction                         |
-|     rollBack     |      `void`       |                       rollBack a beginTransaction                        |
-|      insert      |       `int`       | Insert data, return primary key ID, non-self-added primary key returns 0 |
-|     execute      |       `int`       |            Execute SQL and return the number of affected rows            |
-|      query       |      `array`      |               Query SQL and return a list of result sets.                |
-|      fetch       |  `array, object`  |       Query SQL and return the first row of data in the result set       |
+|  Nome do método  | Tipo de valor de retorno |                                  Notas                                   |
+| :--------------: | :----------------------: | :----------------------------------------------------------------------: |
+| beginTransaction |         `void`           |                         Começar uma beginTransaction                     |
+|      commit      |         `void`           |                        commit uma beginTransaction                       |
+|     rollBack     |         `void`           |                       rollBack uma beginTransaction                      |
+|      insert      |          `int`           | Inserir dados, retornar ID da chave primária, chave primária não auto-adicionada retorna 0|
+|     execute      |          `int`           |            Execute SQL e retorne o número de linhas afetadas        |
+|      query       |         `array`          |               Query SQL e retorne uma lista de conjuntos de resultados.                |
+|      fetch       |     `array, object`      |       Query SQL e retorne a primeira linha de dados no conjunto de resultados      |
