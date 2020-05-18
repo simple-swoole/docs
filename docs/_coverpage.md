@@ -1,9 +1,9 @@
 # Simps
 
-> A PHP coroutine framework.
+> Um framework PHP com corotinas.
 
-* Simple and lightweight
-* High performance
+* Simples e leve
+* Alta performance
 
-[Need improve performance?](mailto:team@simps.io)
-<a href="https://doc.simps.io" target="_self">Get Started</a>
+[Necessita melhorar a performance?](mailto:team@simps.io)
+<a href="https://doc.simps.io" target="_self">Inicie agora mesmo!</a>
