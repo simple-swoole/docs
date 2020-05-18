@@ -7,7 +7,7 @@
 [![Php Version](https://img.shields.io/badge/php-%3E=7.1-brightgreen.svg)](https://www.php.net)
 [![Swoole Version](https://img.shields.io/badge/swoole-%3E=4.4.0-brightgreen.svg)](https://github.com/swoole/swoole-src)
 
-Simps 是基于`Swoole 4.4+`实现的极简PHP协程框架，相当于其他框架，本框架没有过多的封装，只有简单的几个文件。
+Simps 是基于`Swoole 4.4+`实现的极简PHP协程框架，相对于其他框架，本框架没有过多的封装，只有简单的几个文件。
 
 同时也并未再次提供常用的组件，因为有`composer`的存在，`PHP`依赖管理的利器。各种现成的组件很多，我们都可以直接使用`composer`进行安装加载。
 
