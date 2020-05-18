@@ -1,11 +1,11 @@
-# Router
+# Roteador
 
-The route of the HTTP server is parsed using [nikic/fast-route](https://github.com/nikic/FastRoute), and the route is parsed and distributed to the corresponding controller while listening for the `onRequest` event.
+A rota do servidor HTTP é analisada usando [nikic/fast-route](https://github.com/nikic/FastRoute), e a rota é 
+analisada e distribuída para o controlador correspondente enquanto escuta o evento `onRequest`.
 
-## Router definition
+## Definição do roteador
 
-Declare the corresponding routing information in the `config/routes.php` file.
-
+Declare as informações de roteamento correspondentes no arquivo `config/routes.php`.
 ```php
 return [
     ['GET', '/', '\App\Controller\IndexController@index'],
@@ -17,10 +17,10 @@ return [
 ];
 ```
 
-## Router parameters
+## Parâmetros do roteador
 
-The corresponding controller method has two parameters `$request` and `$response` by default. If routing parameters are added, they are in the third parameter array.
-
+O método do controlador correspondente possui dois parâmetros `$request` e `$response` por padrão. Se parâmetros de 
+roteamento forem adicionados, eles estarão na terceira matriz de parâmetros.
 ```php
 public function hello($request, $response, $data)
 {
@@ -37,11 +37,12 @@ public function hello($request, $response, $data)
 }
 ```
 
-For example, the default route `/hello[/{name}]`, this time when you access the corresponding `http://0.0.0.0:9501/hello/swoole`, you will output
+Por exemplo, a rota padrão `/hello[/{name}]`, desta vez quando você acessa o correspondente `http://0.0.0.0:9501/hello/swoole`, 
+você gera
 
 ```json
 {
     "method": "GET",
-    "message": "Hello swoole."
+    "message": "Olá swoole."
 }
 ```

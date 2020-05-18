@@ -1,8 +1,9 @@
-# Controller
+# Controlador
 
-To handle the corresponding HTTP request through the controller, you need to bind the route to the controller method through the configuration file.
+Para manipular a solicitação HTTP correspondente por meio do controlador, é necessário vincular a rota ao método do 
+controlador por meio do arquivo de configuração.
 
-## Write controller
+## Controlador de escrita
 
 ```php
 <?php
@@ -15,7 +16,7 @@ class IndexController
 {
     public function index($request, $response)
     {
-        $response->end("hello swoole");
+        $response->end("olá swoole");
     }
 
     public function test($request, $response, $data)
