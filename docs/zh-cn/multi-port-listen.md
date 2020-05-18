@@ -17,7 +17,7 @@
     'sock_type' => SWOOLE_SOCK_TCP,
     'class_name' =>  \Swoole\Http\Server::class,
     'callbacks' => [
-        "request" => [\App\Events\Http::class, 'onRequest'],
+        'request' => [\App\Events\Http::class, 'onRequest'],
     ],
     'settings' => [
         'worker_num' => swoole_cpu_num(),
@@ -29,7 +29,7 @@
             'port' => 9502,
             'sock_type' => SWOOLE_SOCK_TCP,
             'callbacks' => [
-                "receive" => [\App\Events\Tcp::class, 'onReceive'],
+                'receive' => [\App\Events\Tcp::class, 'onReceive'],
             ],
             'settings' => [
                 'open_http_protocol' => false, // 设置这个端口关闭HTTP协议功能
