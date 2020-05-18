@@ -1,13 +1,11 @@
 # WebSocket
 
-## Start
+## Começar
 
 ```bash
 php bin/simps.php ws:start
 ```
 
-## Corresponding event
-
-This framework has `onStart` and` onWorkerStart` events by default. If you need to add other events, please refer to [Undefined event](/en/listens?id=undefined-event), If you need to modify the existing event, please refer to [Event already exists](/en/listens?id=event-already-exists)
-
-!> WebSocket available event reference [Swoole official document](https://wiki.swoole.com/#/websocket_server?id=%e4%ba%8b%e4%bb%b6)
+## Evento correspondente
+Esse framework possui eventos `onStart` e` onWorkerStart` por padrão. Se você precisar adicionar outros eventos, consulte [Evento indefinido](/pt-br/listens?id=undefined-event). Se você precisar modificar o evento existente, consulte [Evento já existe](/pt-br/listens?id=event-already-exists)
+> Referência de evento disponível do WebSocket [Swoole official document](https://wiki.swoole.com/#/websocket_server?id=%e4%ba%8b%e4%bb%b6)
