@@ -4,3 +4,4 @@
 
 ![alipay](https://cdn.jsdelivr.net/gh/sy-records/staticfile/images/alipay.jpg ':size=362x562')
 ![wechatpay](https://cdn.jsdelivr.net/gh/sy-records/staticfile/images/wechatpay.png ':size=autox562')
+[![paypal](https://cdn.jsdelivr.net/gh/sy-records/staticfile@master/images/202005/paypal-donate-button.png)](https://paypal.me/lufeidot)
