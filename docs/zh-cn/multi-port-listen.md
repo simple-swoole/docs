@@ -19,6 +19,8 @@
     'callbacks' => [
         'request' => [\App\Events\Http::class, 'onRequest'],
     ],
+    'process' => [
+    ],
     'settings' => [
         'worker_num' => swoole_cpu_num(),
     ],
@@ -40,6 +42,35 @@
 ```
 
 !> 以上就是使用 9501 端口处理 http 协议，9502 端口处理 TCP 协议的演示
+
+## addProcess
+
+如果你需要添加一个用户自定义的工作进程，那么只需要添加一个`process`的配置项即可，示例：
+
+```php
+'process' => [
+    [\App\Process\TestProcess::class, 'create']
+],
+```
+
+```php
+namespace App\Process;
+
+use Swoole\Process;
+
+class TestProcess
+{
+    public static function create($server)
+    {
+        return new Process(function ($process) use ($server) {
+            while (true) {
+                \Co::sleep(1);
+                echo 'Hello, Simps!\r\n';
+            }
+        }, false, 2, true);
+    }
+}
+```
 
 ## 启动
 
