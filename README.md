@@ -25,6 +25,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="http://qq52o.me"><img src="https://avatars3.githubusercontent.com/u/33931153?v=4" width="100px;" alt=""/><br /><sub><b>沈唁</b></sub></a><br /><a href="https://github.com/simple-swoole/docs/commits?author=sy-records" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/eduardofg87/"><img src="https://avatars0.githubusercontent.com/u/38121716?v=4" width="100px;" alt=""/><br /><sub><b>Eduardo Figueiredo Gonçalves</b></sub></a><br /><a href="https://github.com/simple-swoole/docs/commits?author=eduardofg87" title="Documentation">📖</a></td>
   </tr>
 </table>
 
