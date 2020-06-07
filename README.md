@@ -1,4 +1,7 @@
 # Simps
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Simps License](https://img.shields.io/packagist/l/simple-swoole/simps?color=blue)](https://github.com/simple-swoole/simps/blob/master/LICENSE)
 [![Latest Version](https://img.shields.io/packagist/v/simple-swoole/simps.svg)](https://packagist.org/packages/simple-swoole/simps)
@@ -22,3 +25,21 @@ Simps 是基于`Swoole 4.4+`实现的极简PHP协程框架，相对于其他框�
 ## 名称由来
 
 `Simple + Swoole = Simps`，简单的`Swoole`框架。
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://qq52o.me"><img src="https://avatars3.githubusercontent.com/u/33931153?v=4" width="100px;" alt=""/><br /><sub><b>沈唁</b></sub></a><br /><a href="https://github.com/simple-swoole/docs/commits?author=sy-records" title="Documentation">📖</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
