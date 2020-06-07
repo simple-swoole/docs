@@ -21,4 +21,7 @@
 
 * 事件处理
     * [使用](zh-cn/listens.md)
+
+* 配置文件
+    * [servers.php](zh-cn/config/servers.md)
     * [多端口监听](zh-cn/multi-port-listen.md)

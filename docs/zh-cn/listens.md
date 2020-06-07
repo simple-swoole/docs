@@ -56,7 +56,7 @@ return [
         'port' => 9501,
         'sock_type' => SWOOLE_SOCK_TCP,
         'callbacks' => [
-            "close" => [\App\Events\HTTP::class, 'onClose'],
+            'close' => [\App\Events\HTTP::class, 'onClose'],
         ],
         'settings' => [
             'worker_num' => swoole_cpu_num(),
