@@ -33,3 +33,22 @@ return [
 $redis = new \Simps\DB\BaseRedis();
 $redis->get("key");
 ```
+
+### 订阅
+
+由于现在的设计是使用一个连接操作之后就立刻还回去，执行订阅操作时可能会出现问题，可以参照如下示例代码
+
+```php
+use Simps\DB\Redis as SimpsRedis;
+use Redis;
+
+while (1) {
+    /** @var Redis $redis */
+    $redis = SimpsRedis::getInstance()->getConnection();
+    $redis->setOption(Redis::OPT_READ_TIMEOUT, "-1");
+    $redis->subscribe(['test'], function ($redis, $chan, $msg){
+        echo $chan, " ==> ", $msg, PHP_EOL;
+    });
+
+}
+```
