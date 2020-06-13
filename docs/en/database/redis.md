@@ -31,5 +31,5 @@ return [
 
 ```php
 $redis = new \Simps\DB\BaseRedis();
-$redis->get("key");
+$redis->get('key');
 ```
