@@ -2,6 +2,8 @@
 
 The MQTT client is implemented by `Swoole\Coroutine\Client` and provides the following methods
 
+!> 正常使用需要使用高版本 Swoole，Swoole 版本 >= v4.4.19
+
 ## Method
 
 ### Client::__construct()

@@ -2,6 +2,8 @@
 
 MQTT客户端由`Swoole\Coroutine\Client`实现，提供了以下方法
 
+!> Normal use requires a high version of Swoole, Swoole version >= v4.4.19.
+
 ## 方法
 
 ### Client::__construct()
