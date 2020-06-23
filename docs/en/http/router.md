@@ -37,6 +37,8 @@ public function hello($request, $response, $data)
 }
 ```
 
+!> See the Swoole documentation for a complete description of the Request and Response objects：[Http\Request](https://www.swoole.co.uk/docs/modules/swoole-http-response) 、 [Http\Response](https://www.swoole.co.uk/docs/modules/swoole-http-response)
+
 For example, the default route `/hello[/{name}]`, this time when you access the corresponding `http://0.0.0.0:9501/hello/swoole`, you will output
 
 ```json

@@ -21,6 +21,7 @@ return [
 
 O método do controlador correspondente possui dois parâmetros `$request` e `$response` por padrão. Se parâmetros de 
 roteamento forem adicionados, eles estarão na terceira matriz de parâmetros.
+
 ```php
 public function hello($request, $response, $data)
 {
@@ -36,6 +37,8 @@ public function hello($request, $response, $data)
     );
 }
 ```
+
+!> Consulte a documentação Swoole para uma descrição completa dos objectos de Pedido e Resposta：[Http\Request](https://www.swoole.co.uk/docs/modules/swoole-http-response) 、 [Http\Response](https://www.swoole.co.uk/docs/modules/swoole-http-response)
 
 Por exemplo, a rota padrão `/hello[/{name}]`, desta vez quando você acessa o correspondente `http://0.0.0.0:9501/hello/swoole`, 
 você gera

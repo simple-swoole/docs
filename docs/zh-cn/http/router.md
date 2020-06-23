@@ -37,6 +37,8 @@ public function hello($request, $response, $data)
 }
 ```
 
+!> 关于Request和Response对象完整的介绍请查看Swoole文档：[Http\Request](https://wiki.swoole.com/#/http_server?id=httprequest) 、 [Http\Response](https://wiki.swoole.com/#/http_server?id=httpresponse)
+
 例如默认的路由`/hello[/{name}]`，这个时候访问对应的`http://0.0.0.0:9501/hello/swoole`时，就会输出
 
 ```json
