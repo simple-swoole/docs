@@ -11,7 +11,7 @@ MQTT客户端由`Swoole\Coroutine\Client`实现，提供了以下方法
 创建一个MQTT客户端实例。
 
 ```php
-public function __construct(array $config)
+public function __construct(array $config, array $swConfig = [])
 ```
 
 * 参数`array $config`
@@ -29,6 +29,10 @@ $config = [
     'keepalive' => 10, // 默认0秒，设置成0代表禁用
 ];
 ```
+
+* 参数`array $swConfig`
+
+用于设置`Swoole\Coroutine\Client`参数，请参考Swoole文档[set()](https://wiki.swoole.com/#/coroutine_client/client?id=set)
 
 ### Client::connect()
 
