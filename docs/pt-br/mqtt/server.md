@@ -8,7 +8,7 @@ e Internet das Coisas (IoT).
 Leia o conteúdo relevante do contrato MQTT antes do desenvolvimento: [mqtt-v3.1.1](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html)
 
 Ao usar o Swoole como servidor, configurando a opção [open_mqtt_protocol](https://wiki.swoole.com/#/server/setting?id=open_mqtt_protocol), 
-o cabeçalho `mqtt` será analisado quando ativado e o` O evento onReceive` do processo `worker` retornará um pacote completo` mqtt` a cada vez.
+o cabeçalho `MQTT` será analisado quando ativado e o` O evento onReceive` do processo `worker` retornará um pacote completo` MQTT` a cada vez.
 
 Esse framework encapsula operações relacionadas ao MQTT e expõe algumas interfaces. No uso real, ele precisa implementar 
 `Simps\Server\Protocol\MqttInterface`. Os usuários devem apenas prestar atenção à implementação da lógica de negócios ao 

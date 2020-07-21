@@ -4,7 +4,7 @@ MQTT是一个客户端服务端架构的发布/订阅模式的消息传输协议
 
 在开发前请阅读了解MQTT协议的相关内容：[MQTT协议3.1.1中文翻译版](https://mcxiaoke.gitbook.io/mqtt/01-introduction)
 
-使用Swoole作为服务端时，通过设置 [open_mqtt_protocol](https://wiki.swoole.com/#/server/setting?id=open_mqtt_protocol) 选项，启用后会解析 `mqtt` 包头，`worker` 进程的 `onReceive` 事件每次会返回一个完整的 `mqtt` 数据包。
+使用Swoole作为服务端时，通过设置 [open_mqtt_protocol](https://wiki.swoole.com/#/server/setting?id=open_mqtt_protocol) 选项，启用后会解析 `MQTT` 包头，`worker` 进程的 `onReceive` 事件每次会返回一个完整的 `MQTT` 数据包。
 
 本框架封装了MQTT相关操作，并暴露了一些接口，在实际使用时需要实现`Simps\Server\Protocol\MqttInterface`，用户在使用时应该只需要关注业务逻辑实现：如订阅消息、发布消息等
 

@@ -4,7 +4,7 @@ MQTT is a publish/subscribe model message transmission protocol for client-serve
 
 Please read the relevant content of MQTT agreement before development:[mqtt-v3.1.1](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html)
 
-When using Swoole as the server, by setting the [open_mqtt_protocol](https://wiki.swoole.com/#/server/setting?id=open_mqtt_protocol) option, the `mqtt` header will be parsed when enabled, and the` onReceive` event of the `worker` process will return a complete` mqtt` packet each time.
+When using Swoole as the server, by setting the [open_mqtt_protocol](https://wiki.swoole.com/#/server/setting?id=open_mqtt_protocol) option, the `MQTT` header will be parsed when enabled, and the` onReceive` event of the `worker` process will return a complete` MQTT` packet each time.
 
 This framework encapsulates MQTT related operations and exposes some interfaces. In actual use, it needs to implement `Simps\Server\Protocol\MqttInterface`. Users should only need to pay attention to business logic implementation when using: such as subscribing to messages, publishing messages, etc.
 
