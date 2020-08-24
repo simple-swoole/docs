@@ -24,6 +24,7 @@ return [
     'username' => 'root',
     'password' => '',
     'charset' => 'utf8mb4',
+    'unixSocket' => null,
     'options' => [
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ],
