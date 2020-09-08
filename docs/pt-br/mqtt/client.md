@@ -27,6 +27,7 @@ $config = [
     'password' => 'password', // senha
     'client_id' => '', // ID do cliente
     'keepalive' => 10, // padrão 0 segundos, definido como 0 significa desativado
+    'debug' => false, // Os pacotes recebidos serão impressos quando for ligado.
 ];
 ```
 
@@ -53,7 +54,7 @@ $will = [
     'topic' => '', // tema
     'qos' => 1, // Nível de QoS
     'retain' => 0, // reter marca
-    'content' => "", // conteúdo
+    'content' => '', // conteúdo
 ];
 ```
 

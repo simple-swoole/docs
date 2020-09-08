@@ -27,6 +27,7 @@ $config = [
     'password' => 'password', // 密码
     'client_id' => '', // 客户端id
     'keepalive' => 10, // 默认0秒，设置成0代表禁用
+    'debug' => false, // 开启后将打印收到的数据包
 ];
 ```
 
@@ -59,7 +60,7 @@ $will = [
     'topic' => '', // 主题
     'qos' => 1, // QoS等级
     'retain' => 0, // retain标记
-    'content' => "", // content
+    'content' => '', // content
 ];
 ```
 
