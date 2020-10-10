@@ -24,3 +24,65 @@ class IndexController
     }
 }
 ```
+
+## 中间件
+
+在对应控制器中添加一个`$middleware`属性，设置对应的回调方法
+
+* 类中间件
+
+```php
+class IndexController
+{
+    public $middleware = ['__construct' => [__CLASS__ . '::test']];
+
+    public static function test($handler)
+    {
+        return function ($request, $response, $vars) use ($handler) {
+            // do something
+            return $handler($request, $response, $vars);
+        };
+    }
+
+    public function index($request, $response)
+    {
+        $response->end(
+            json_encode(
+                [
+                    'method' => $request->server['request_method'],
+                    'message' => 'Hello Simps.'
+                ]
+            )
+        );
+    }
+}
+```
+
+* 方法中间件
+
+```php
+class IndexController
+{
+    public $middleware = ['index' => [__CLASS__ . '::test']];
+
+    public static function test($handler)
+    {
+        return function ($request, $response, $vars) use ($handler) {
+            // do something
+            return $handler($request, $response, $vars);
+        };
+    }
+
+    public function index($request, $response)
+    {
+        $response->end(
+            json_encode(
+                [
+                    'method' => $request->server['request_method'],
+                    'message' => 'Hello Simps.'
+                ]
+            )
+        );
+    }
+}
+```
