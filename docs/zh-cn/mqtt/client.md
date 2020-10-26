@@ -6,12 +6,12 @@ MQTT客户端由`Swoole\Coroutine\Client`实现，提供了以下方法
 
 ## 方法
 
-### Client::__construct()
+### __construct()
 
 创建一个MQTT客户端实例。
 
 ```php
-public function __construct(array $config, array $swConfig = [])
+Simps\Client\MQTTClient::__construct(array $config, array $swConfig = [])
 ```
 
 * 参数`array $config`
@@ -35,12 +35,12 @@ $config = [
 
 用于设置`Swoole\Coroutine\Client`参数，请参考Swoole文档[set()](https://wiki.swoole.com/#/coroutine_client/client?id=set)
 
-### Client::connect()
+### connect()
 
 连接Broker
 
 ```php
-public function connect(bool $clean = true, array $will = [])
+Simps\Client\MQTTClient->connect(bool $clean = true, array $will = [])
 ```
 
 * 参数`bool $clean`
@@ -64,12 +64,12 @@ $will = [
 ];
 ```
 
-### Client::publish()
+### publish()
 
 向某个主题发布一条消息
 
 ```php
-public function publish($topic, $content, $qos = 0, $dup = 0, $retain = 0)
+Simps\Client\MQTTClient->publish($topic, $content, $qos = 0, $dup = 0, $retain = 0)
 ```
 
 * 参数`$topic` 主题
@@ -78,12 +78,12 @@ public function publish($topic, $content, $qos = 0, $dup = 0, $retain = 0)
 * 参数`$dup` 重发标志，默认0
 * 参数`$retain` retain标记，默认0
 
-### Client::subscribe()
+### subscribe()
 
 订阅一个主题或者多个主题
 
 ```php
-public function subscribe(array $topics)
+Simps\Client\MQTTClient->subscribe(array $topics)
 ```
 
 * 参数`array $topics`
@@ -98,42 +98,48 @@ $topics = [
 ];
 ```
 
-### Client::unSubscribe()
+### unSubscribe()
 
 取消订阅一个主题或者多个主题
 
 ```php
-public function unSubscribe(array $topics)
+Simps\Client\MQTTClient->unSubscribe(array $topics)
 ```
 
-!> 参数同上。
+* 参数`array $topics`
 
-### Client::close()
+`$topics`的`key`是主题，值为`QoS`的数组，例如
+
+```php
+$topics = ['topic1', 'topic2'];
+```
+
+### close()
 
 正常断开与Broker的连接，`DISCONNECT(14)`报文会被发送到Broker
 
 ```php
-public function close()
+Simps\Client\MQTTClient->close()
 ```
 
-### Client::recv()
+### recv()
 
 接收消息
 
-```
-public function recv()
+```php
+Simps\Client\MQTTClient->recv()
 ```
 
 返回值可能为`bool`、`array`、`string`
 
 !> 如果是数组的话就需要按照对应的`cmd`参数处理逻辑
 
-### Client::sendBuffer()
+### sendBuffer()
 
 发送消息
 
-```
-public function sendBuffer($data, $response = true)
+```php
+Simps\Client\MQTTClient->sendBuffer(array $data, $response = true)
 ```
 
 * 参数`array $data`
@@ -144,20 +150,20 @@ public function sendBuffer($data, $response = true)
 
 是否需要回执，如果为`true`，会调用一次`recv()`
 
-### Client::ping()
+### ping()
 
 发送心跳包
 
 ```php
-public function ping()
+Simps\Client\MQTTClient->ping()
 ```
 
-### Client::getMsgId()
+### getMsgId()
 
 获取当前消息id条数
 
 ```php
-public function getMsgId()
+Simps\Client\MQTTClient->getMsgId()
 ```
 
 ## 使用示例

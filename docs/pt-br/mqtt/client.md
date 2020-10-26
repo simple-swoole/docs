@@ -6,12 +6,12 @@ O cliente MQTT é implementado por `Swoole\Coroutine\Client` e fornece os seguin
 
 ## Método
 
-### Client::__construct()
+### __construct()
 
 Crie uma instância do cliente MQTT.
 
 ```php
-public function __construct(array $config)
+Simps\Client\MQTTClient::__construct(array $config)
 ```
 
 * `array $config`
@@ -31,12 +31,12 @@ $config = [
 ];
 ```
 
-### Client::connect()
+### connect()
 
 Connect Broker
 
 ```php
-public function connect(bool $clean = true, array $will = [])
+Simps\Client\MQTTClient->connect(bool $clean = true, array $will = [])
 ```
 
 * `bool $clean`
@@ -58,20 +58,20 @@ $will = [
 ];
 ```
 
-### Client::publish()
+### publish()
 
 Poste uma mensagem em um tópico.
 
 ```php
-public function publish($topic, $content, $qos = 0, $dup = 0, $retain = 0)
+Simps\Client\MQTTClient->publish($topic, $content, $qos = 0, $dup = 0, $retain = 0)
 ```
 
-### Client::subscribe()
+### subscribe()
 
 Inscreva-se em um tópico ou em vários tópicos.
 
 ```php
-public function subscribe(array $topics)
+Simps\Client\MQTTClient->subscribe(array $topics)
 ```
 
 * `array $topics`
@@ -86,65 +86,69 @@ $topics = [
 ];
 ```
 
-### Client::unSubscribe()
+### unSubscribe()
 
 Cancele a inscrição em um tópico ou em vários tópicos.
 
 ```php
-public function unSubscribe(array $topics)
+Simps\Client\MQTTClient->unSubscribe(array $topics)
 ```
 
-> Os parâmetros são os mesmos que acima.
+* `array $topics`
 
-### Client::close()
+```php
+$topics = ['topic1', 'topic2'];
+```
+
+### close()
 
 Normalmente desconecte-se do Broker, a mensagem `DISCONNECT (14)` será enviada ao Broker.
 
 ```php
-public function close()
+Simps\Client\MQTTClient->close()
 ```
 
-### Client::recv()
+### recv()
 
 Receber mensagem.
 
-```
-public function recv()
+```php
+Simps\Client\MQTTClient->recv()
 ```
 O valor de retorno pode ser `bool`, `array`, `string`
 
 > Se for um array, você precisará processar a lógica de acordo com o parâmetro correspondente `cmd`
 
-### Client::sendBuffer()
+### sendBuffer()
 
 Enviar mensagem.
 
-```
-public function sendBuffer($data, $response = true)
+```php
+Simps\Client\MQTTClient->sendBuffer(array $data, $response = true)
 ```
 
 * `array $data`
 
-`$ data` é o dado a ser enviado e deve conter informações como `cmd`.
+`$data` é o dado a ser enviado e deve conter informações como `cmd`.
 
 * `bool $response`
 
 Se um recibo é necessário, se for `true`, `recv()` será chamado uma vez.
 
-### Client::ping()
+### ping()
 
 Enviar pacote de pulsação.
 
 ```php
-public function ping()
+Simps\Client\MQTTClient->ping()
 ```
 
-### Client::getMsgId()
+### getMsgId()
 
 Obtenha o número do ID da mensagem atual.
 
 ```php
-public function getMsgId()
+Simps\Client\MQTTClient->getMsgId()
 ```
 
 ## Exemplo de uso
