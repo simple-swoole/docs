@@ -1,5 +1,7 @@
 # MQTT客户端
 
+!> 将于框架`v1.1`版本移除，请使用单独的扩展包 [simps/mqtt](https://github.com/simps/mqtt) ，包含协议解析和协程客户端。
+
 MQTT客户端由`Swoole\Coroutine\Client`实现，提供了以下方法
 
 !> 正常使用需要使用高版本 Swoole，Swoole 版本 >= v4.4.19
