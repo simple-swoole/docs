@@ -8,7 +8,7 @@ MQTT是一个客户端服务端架构的发布/订阅模式的消息传输协议
 
 本框架封装了MQTT相关操作，并暴露了一些接口，在实际使用时需要实现`Simps\Server\Protocol\MqttInterface`，用户在使用时应该只需要关注业务逻辑实现：如订阅消息、发布消息等
 
-!> 如有定制开发需求可以联系QQ：85464277。
+!> 请使用单独的扩展包 [simps/mqtt](https://github.com/simps/mqtt) 。
 
 ## 实现
 
