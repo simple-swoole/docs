@@ -7,5 +7,6 @@
 * Simple and lightweight
 * High performance
 
-<a href="mailto:team@simps.io?subject=Need improve performance">Need improve performance?</a>
+[GitHub](https://github.com/simple-swoole/simps)
+[Gitee](https://gitee.com/simple-swoole/simps)
 <a href="https://doc.simps.io" target="_self">Get Started</a>
