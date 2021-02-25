@@ -25,3 +25,6 @@
 * 配置文件
     * [servers.php](zh-cn/config/servers.md)
     * [多端口监听](zh-cn/multi-port-listen.md)
+
+* 客户端
+  * [Consul](zh-cn/client/consul.md)
