@@ -4,7 +4,7 @@
 
 ## 安装
 
-```
+```bash
 composer require simple-swoole/db
 ```
 
@@ -32,4 +32,31 @@ return [
 ```php
 $redis = new \Simps\DB\BaseRedis();
 $redis->get('key');
+```
+
+## 队列
+
+```bash
+composer require easyswoole/queue 3.x
+```
+
+```php
+use EasySwoole\Queue\Driver\RedisQueue;
+use EasySwoole\Queue\Job;
+use EasySwoole\Queue\Queue;
+use EasySwoole\Redis\Config\RedisConfig;
+
+// 生产
+$config = new RedisConfig();
+$queue = new Queue(new RedisQueue($config));
+
+$job = new Job();
+$job->setJobData("this is my job data time time " . date('Ymd h:i:s'));
+var_dump($queue->producer()->push($job));
+
+// 消费
+$config = new RedisConfig();
+$queue = new Queue(new RedisQueue($config));
+$job = $queue->consumer()->pop();
+var_dump($job->getJobData());
 ```

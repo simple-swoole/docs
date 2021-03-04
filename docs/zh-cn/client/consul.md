@@ -4,6 +4,8 @@
 
 > `ConsulResponse` 类指的是 `Simps\Consul\ConsulResponse` 类
 
+!> [手把手教你搭建Swoole微服务（基于consul和simps框架）](https://wenda.swoole.com/detail/107711)
+
 ## 安装
 
 ```bash
