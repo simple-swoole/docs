@@ -31,13 +31,13 @@
       name: 'Simps',
       repo: 'simple-swoole/simps',
       logo: 'https://raw.githubusercontent.com/sy-records/staticfile/master/images/simps.png',
-      onlyCover: true,
       coverpage: true,
       loadSidebar: true,
       loadNavbar: true,
       subMaxLevel: 3,
       themeColor: '#5C9DFF',
       mergeNavbar: true,
+      homepage: 'zh-cn/README.md',
       search: {
         depth: 6,
         paths: 'auto',
@@ -46,6 +46,7 @@
       auto2top: true,
       alias: {
         '/.*/_navbar.md': '/_navbar.md',
+        '/_sidebar.md': '/zh-cn/_sidebar.md',
       },
       plugins: [
         function (hook) {
@@ -59,12 +60,11 @@
   </script>
   <script src="//unpkg.com/docsify-copy-code@2/dist/docsify-copy-code.min.js"></script>
   <script src="//unpkg.com/docsify@4/lib/plugins/search.min.js"></script>
-  <script src="//unpkg.com/docsify@4/lib/plugins/emoji.min.js"></script>
   <script>
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?ad37bb5d1aef97de0f26dd4c49e1a12b";
+      hm.src = "https://hm.baidu.com/hm.js?d7234030b7404652e1f924165d844486";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
