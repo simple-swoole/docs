@@ -11,9 +11,9 @@
 
 ## Translations
 
-* [x] [简体中文](https://simps.io/#/zh-cn/)
-* [x] [English](https://simps.io/#/en/)
-* [x] [Português](https://simps.io/#/pt-br/)
+* [x] [简体中文](https://doc.simps.io/#/zh-cn/)
+* [x] [English](https://doc.simps.io/#/en/)
+* [x] [Português](https://doc.simps.io/#/pt-br/)
 
 ## Contributors ✨
 
